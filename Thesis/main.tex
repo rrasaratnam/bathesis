@@ -5,7 +5,7 @@
 
 % TODO: fill in the information
 \newcommand{\englishtitle}{English Title}
-\newcommand{\germantitle}{German Title}
+\newcommand{\germantitle}{Hi Title}
 \newcommand{\authorprename}{Max}
 \newcommand{\authorsurname}{Mustermann}
 \newcommand{\matriculationnumber}{123456}
@@ -58,7 +58,7 @@
 % OPTIONAL (remove if you don't want a dedication)
 \input{content/dedication.tex}
 
-  \listoftodos[This is to be done] 	% TODO: exclude in final version
+\listoftodos[This is to be done] 	% TODO: exclude in final version
 % the list of todos should not be part of the final thesis and is only intended to show the advisor(s) of what flaws the student is already aware of)
 
 % Abstract of the thesis
@@ -81,16 +81,16 @@
 
 % print acronym list
 \ifthenelse{\boolean{german}}{
-\printglossary[type=\acronymtype,style=long, title=Abkürzungsverzeichnis] % use this for german version
+	\printglossary[type=\acronymtype,style=long, title=Abkürzungsverzeichnis] % use this for german version
 }{
-\printglossary[type=\acronymtype,style=long, title=List of Acronyms]
+	\printglossary[type=\acronymtype,style=long, title=List of Acronyms]
 }
 
 % print symbol list
 \ifthenelse{\boolean{german}}{
-\printglossary[type=symbolslist,style=long, title=Symbolverzeichnis] % use this for german version
+	\printglossary[type=symbolslist,style=long, title=Symbolverzeichnis] % use this for german version
 }{
-\printglossary[type=symbolslist,style=long, title=List of Symbols] 
+	\printglossary[type=symbolslist,style=long, title=List of Symbols]
 }
 
 \pagestyle{scrheadings}
