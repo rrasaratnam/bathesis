@@ -1,0 +1,24 @@
+% define basic appearence for dedication
+\renewcommand{\dedication}{
+	\cleardoublepage
+	\thispagestyle{plain}
+	\ \par
+	\vspace{5cm}
+	\noindent
+	\ifthenelse{\boolean{german}}{\textbf{Dankeswort}}{\textbf{Acknowledgments}}
+	\vspace{-0.5cm}
+	\begin{flushleft}
+		\noindent
+	\end{flushleft}}
+
+\dedication{
+\ifthenelse{\boolean{german}}{
+Vorab möchte ich mich bei einigen Personen bedanken, die mich bei der Erstellung dieser Arbeit unterstützt haben:
+}{
+Ex ante, I'd like to thank the listed persons below who supported me during the editing time of this thesis:
+}
+\begin{itemize}
+	\item Person XY for ...,
+	\item The coffee machine of i11.
+\end{itemize}
+}

@@ -1,0 +1,99 @@
+% !TEX root = ../main.tex
+
+\chapter{Appendix1}
+\label{app:a}
+
+Here could be a large figure or a very big table like this:
+
+\begin{tabularx}{\textwidth}{| p{0.2\textwidth} | p{0.4\textwidth} | p{0.2\textwidth} |}%{\linewidth}{|X|X|}
+  \caption{Table caption} \\\endfirsthead
+	
+  \hline
+  \textbf{column1} & column2 & column3 \\ \hline
+  row 1 & X & X \\ \hline
+	row 2 & X & X \\ \hline
+	row 3 & X & X \\ \hline
+	row 4 & X & X \\ \hline
+	row 5 & X & X \\ \hline
+	row 6 & X & X \\ \hline
+	row 7 & X & X \\ \hline
+	row 8 & X & X \\ \hline
+	row 9 & X & X \\ \hline
+	row 10 & X & X \\ \hline
+	row 11 & X & X \\ \hline
+	row 12& X & X \\ \hline
+	row 13 & X & X \\ \hline
+	row 14 & X & X \\ \hline
+	row 15 & X & X \\ \hline
+	row 16 & X & X \\ \hline
+	row 17 & X & X \\ \hline
+	row 18 & X & X \\ \hline
+	row 19 & X & X \\ \hline
+	row 20 & X & X \\ \hline
+	row 21 & X & X \\ \hline
+	row 22 & X & X \\ \hline
+	row 23 & X & X \\ \hline
+	row 24 & X & X \\ \hline
+	row 25 & X & X \\ \hline
+	row 26 & X & X \\ \hline
+	row 27 & X & X \\ \hline
+	row 28 & X & X \\ \hline
+	row 29 & X & X \\ \hline
+	row 30 & X & X \\ \hline
+	row 31 & X & X \\ \hline
+	row 32 & X & X \\ \hline
+	row 33 & X & X \\ \hline
+ \end{tabularx}
+
+
+% ----------------------------------------------------------------------------
+\chapter{Digital Mediums as part of the thesis}
+\label{app:b}
+
+This appendix is not empty but not referenced before.
+Such things shall not happen in a final version of a thesis.
+The same applies for figures, tables and other provided materials.
+
+If you provide digital data with the printed version of you thesis (e.g. a CD/DVD) the contents of the digital recording have to be organized in a structured way to.
+The digital medium should contain a README file in the root folder.
+This textfile (*.txt) should state how the data is organized on the medium.
+Potential content for an attached digital recording is a digital version of the thesis or digital copies of the web-sources (can be created using a pdf printer).
+In case the digital medium contains program code or executables form third parties, please ensure that you do not violate any licenses.
+
+% -----------------------------------------------------------------------------
+\chapter{Use of Symbols, Abbreviations and Index}
+\label{app:c}
+
+Symbols can be introduced using the following Latex commands:
+\begin{flushleft}
+\textbackslash newglossaryentry\{symbol:pi\}\{
+	name=\textbackslash ensuremath\{\textbackslash pi\},\\
+	description=\{Kreiszahl [einheitenlos]\},\\
+	sort=symbolpi,type=symbolslist,\\
+\}
+\end{flushleft}
+
+The created symbol can then be referenced by:
+\begin{flushleft}
+\textbackslash sym\{pi\}
+\end{flushleft}
+which will be displayed as \sym{pi}.
+Symbols being created this way are automatically added to the list of symbols behind the list of contents.
+
+
+In a similar manner abbreviations can be used.
+To define a new abbreviation, use
+\begin{flushleft}
+\textbackslash newacronym\{i11\}\{I11\}\{Lehrstuhl Informatik 11\}
+\end{flushleft}
+which defines a new acronym.
+It can be used with the command \textbackslash abk\{i11\} and looks like \abk{i11} when referenced multiple times.
+The first use of the command, however, will appear as can be seen in the first sentence of section \ref{sect:main_contributions}.
+For the full command-reference see the documentation of the acronym package.
+Alternatively, see \url{http://texblog.org/2014/01/15/glossary-and-list-of-acronyms-with-latex/} for explanations to capitalize and pluralize acronyms.
+
+
+An index (germ. Stichwortverzeichnis) can be created using the \textbackslash printindex command.
+To add text phrases to the index write \textbackslash index\{phrase for the index\} which will be displayed as \index{phrase for the index} but create an entry in the index chapter referring to the page the phrase is placed to (see next page).
+The index creation requires two latex compilations and the use of makeindex.
+However, this should be no issue using this template and compiling with compile.bat.

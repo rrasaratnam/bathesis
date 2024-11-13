@@ -1,0 +1,79 @@
+
+% dynamically set the thesis type according to the used language
+\ifthenelse{\boolean{ba}}{
+	\newcommand{\thesistypeen}{Bachelor~Thesis}
+	\newcommand{\thesistypede}{Bachelorarbeit}
+}{
+\newcommand{\thesistypeen}{Master~Thesis}
+\newcommand{\thesistypede}{Masterarbeit}
+}
+
+\ifthenelse{\boolean{german}}{
+
+	\renewcommand{\subject}{\thesistypede\\ 
+		\vspace{0.3cm}{\thesistypeen\\}}
+	}{
+	\renewcommand{\subject}{\thesistypeen\\ 
+		\vspace{0.3 cm}{\thesistypede\\}}
+	}
+
+% set title page
+\renewcommand*{\maketitle}{%
+  \begin{titlepage}
+  	\begin{textblock}{120}(85,0)
+  		\includegraphics[height=3.1cm]{i11_Vector_RGB.pdf}
+  	\end{textblock}
+  	
+  	% empty
+  	\ 
+  	\vspace{0.5cm}
+
+	% thesis type
+	\centering
+	\textbf{\subject}
+	
+	\vspace{0.8cm}
+	\vfill
+	
+	% thesis title		% TODO: größer & andere Schriftart
+	\textbf{
+	  \LARGE{\ifthenelse{\boolean{german}}{\germantitle}{\englishtitle}}\\
+	  \vspace{0.3cm}
+	  \Large{\ifthenelse{\boolean{german}}{\englishtitle}{\germantitle}}\\
+    }
+  
+  	\vspace{0.8cm}
+  	\vfill
+  	
+  	% student
+  	\authorname\\
+  	Matrikelnummer: \matriculationnumber\\
+  	
+  	\vspace{0.3cm}
+  	\vfill
+  	
+  	% metainfo
+  	Aachen, \today
+  	\vspace{0.3cm}
+  	\vfill
+  	 
+  	\ifthenelse{\boolean{german}}{Gutachter}{Examiners}%
+  	:\\ %research mentor
+  	\examinors \\
+  	\vspace{0.3cm}
+  	\vfil
+  	\ifthenelse{\boolean{german}}{Betreuer}{Advisors}%
+  	:\\
+  	\advisors
+  	
+    \vspace{0.3cm}
+    \vfill
+    	
+    \ifthenelse{\boolean{german}}{Diese Arbeit wurde vorgelegt am \\Lehrstuhl Informatik 11 -- Embedded Software}{This thesis was submitted to \\Lehrstuhl Informatik 11 -- Embedded Software}
+  
+  	
+   
+  \end{titlepage}
+}
+
+\maketitle

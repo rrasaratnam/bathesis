@@ -1,0 +1,119 @@
+\documentclass[paper=A4,abstracton,twoside,openright,11pt,headsepline,BCOR=1cm,DIV=10,utf8]{scrreprt}
+
+% do this first, since title of thesis might contain umlauts
+\usepackage[utf8]{inputenc}
+
+% TODO: fill in the information
+\newcommand{\englishtitle}{English Title}
+\newcommand{\germantitle}{German Title}
+\newcommand{\authorprename}{Max}
+\newcommand{\authorsurname}{Mustermann}
+\newcommand{\matriculationnumber}{123456}
+\newcommand{\examinors}{
+	% Prüfer
+	Prof. Dr.-Ing. Stefan Kowalewski\\
+	Prof. Dr.\,rer.\,nat. Supervisor Two
+}
+\newcommand{\advisors}{
+	% Betreuer
+	Advisor One M.Sc. \\
+	Dipl.-Inform. Advisor Two
+}
+
+
+% import the preamble (manages all other imported packages)
+% TODO: enable/disable specifics for theses written in german
+% TODO: enable/disable BA (bachelor thesis) as thesis type
+\usepackage[DE=false, BA=true]{preamble}
+
+% Note: if you switch between different languages after the file has been compiled, it might be necessary to create the pdf multiple times to get rid of errors indicating that you havent loaded the package ngerman yet
+
+\input{tex/commands.tex}    % import commands from file
+
+%Abkürzungen:
+\input{acronyms.tex}
+
+%Symbole:
+\input{symbols.tex}
+
+% --------------------------------------preambles-end-----------------------------------------
+
+% Begin of the actual document
+\begin{document}
+\pagenumbering{Roman}
+%\input{tex/commands2.tex}
+
+% User specific options how latex shall split words at the end of a text line
+% in case there is not enough space to fit the word. The listed word will be 
+% split at the positions marked with -
+% The list of words to split 
+\input{tex/hyphenation.tex}
+
+\pagestyle{scrheadings}
+
+% do not modify the titlepage!
+%\input{tex/titlepage.tex}
+\input{tex/I11TitlePage.tex}
+
+% OPTIONAL (remove if you don't want a dedication)
+\input{content/dedication.tex}
+
+  \listoftodos[This is to be done] 	% TODO: exclude in final version
+% the list of todos should not be part of the final thesis and is only intended to show the advisor(s) of what flaws the student is already aware of)
+
+% Abstract of the thesis
+\input{content/abstract.tex}
+
+% Eidesstattliche Erklärung
+% Note: there is an english translation available (eidesstattlicheVersicherungZPA_en.pdf). 
+% However, the german version is legally binding and required to be a part of the thesis.
+%\includepdf[pages={1}]{eidesstattlicheVersicherungZPA.pdf}
+\input{tex/versicherung.tex}
+
+
+% TODO: remove/add % symbols before the required rows
+\tableofcontents  % Inhaltsverzeichnis
+\listoftables		% Tabellenverzeichnis
+\listoffigures   % Abbildungsverzeichnis
+
+% TODO: see http://texblog.org/2014/01/15/glossary-and-list-of-acronyms-with-latex/ 
+% at Capitalize and pluralize terms for a brief introduction on how to use acronyms 
+
+% print acronym list
+\ifthenelse{\boolean{german}}{
+\printglossary[type=\acronymtype,style=long, title=Abkürzungsverzeichnis] % use this for german version
+}{
+\printglossary[type=\acronymtype,style=long, title=List of Acronyms]
+}
+
+% print symbol list
+\ifthenelse{\boolean{german}}{
+\printglossary[type=symbolslist,style=long, title=Symbolverzeichnis] % use this for german version
+}{
+\printglossary[type=symbolslist,style=long, title=List of Symbols] 
+}
+
+\pagestyle{scrheadings}
+
+% TODO: write your content into the chapters
+\cleardoublepage\pagenumbering{arabic}
+\input{content/introduction.tex}
+\input{content/basics.tex}
+\input{content/relatedwork.tex}
+
+\input{content/corechapter.tex}
+
+\input{content/evaluation.tex}	% If there is one
+
+\input{content/conclusion.tex}
+
+\bibliographystyle{alphadin}
+\bibliography{references}
+
+\appendix	%TODO: (optional)
+\input{content/appendix.tex}
+
+\printindex	% TODO: index/Stichwortverzeichnis (optional)
+
+\end{document}
+
